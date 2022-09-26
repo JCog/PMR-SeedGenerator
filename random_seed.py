@@ -82,14 +82,16 @@ class RandomSeed:
 
         # Streamlined Chapters
         # TODO: create a proper setting for this
-        streamlined_chapters_not_required = [1, 2, 3, 4, 5, 6, 7]
-        streamlined_chapters_required = []
-        for i in range(0, self.rando_settings.starway_spirits_needed["value"]):
-            chapter_index = random.randrange(0, len(streamlined_chapters_not_required))
-            streamlined_chapters_required.append(streamlined_chapters_not_required.pop(chapter_index))
-        streamlined_chapters_required.sort()
-        print("Required Streamlined Chapters: " + str(streamlined_chapters_required))
-        world_graph = get_streamlined_chapters(world_graph, streamlined_chapters_not_required, self.rando_settings.starway_spirits_needed["value"])
+        streamlined_chapters = True
+        if streamlined_chapters:
+            streamlined_chapters_not_required = [1, 2, 3, 4, 5, 6, 7]
+            streamlined_chapters_required = []
+            for i in range(0, self.rando_settings.starway_spirits_needed["value"]):
+                chapter_index = random.randrange(0, len(streamlined_chapters_not_required))
+                streamlined_chapters_required.append(streamlined_chapters_not_required.pop(chapter_index))
+            streamlined_chapters_required.sort()
+            print(f"Required Streamlined Chapters: {str(streamlined_chapters_required)}")
+            world_graph = get_streamlined_chapters(world_graph, streamlined_chapters_required)
 
         hidden_block_mode = self.rando_settings.hidden_block_mode["value"]
         if self.rando_settings.glitch_settings.knows_hidden_blocks["value"]:

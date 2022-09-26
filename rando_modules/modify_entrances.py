@@ -661,39 +661,39 @@ def adjust_rip_cheato_pricing(world_graph: dict, checks_in_logic:int):
     return world_graph
 
 
-def get_streamlined_chapters(world_graph: dict, non_required_chapters: list, required_chapter_count: int):
+def get_streamlined_chapters(world_graph: dict, required_chapters: list):
     all_new_edges = []
     all_edges_to_remove = []
 
-    if required_chapter_count < 7:
-        all_new_edges.extend(get_streamlined_edges_hos_add(required_chapter_count))
+    if len(required_chapters) < 7:
+        all_new_edges.extend(get_streamlined_edges_hos_add(len(required_chapters)))
         all_edges_to_remove.extend(streamlined_edges_hos_remove)
 
-    if 1 in non_required_chapters:
+    if 1 not in required_chapters:
         all_new_edges.extend(streamlined_edges_ch1_add)
         all_edges_to_remove.extend(streamlined_edges_ch1_remove)
 
-    if 2 in non_required_chapters:
+    if 2 not in required_chapters:
         all_new_edges.extend(streamlined_edges_ch2_add)
         all_edges_to_remove.extend(streamlined_edges_ch2_remove)
 
-    if 3 in non_required_chapters:
+    if 3 not in required_chapters:
         all_new_edges.extend(streamlined_edges_ch3_add)
         all_edges_to_remove.extend(streamlined_edges_ch3_remove)
 
-    if 4 in non_required_chapters:
+    if 4 not in required_chapters:
         all_new_edges.extend(streamlined_edges_ch4_add)
         all_edges_to_remove.extend(streamlined_edges_ch4_remove)
 
-    if 5 in non_required_chapters:
+    if 5 not in required_chapters:
         all_new_edges.extend(streamlined_edges_ch5_add)
         all_edges_to_remove.extend(streamlined_edges_ch5_remove)
 
-    if 6 in non_required_chapters:
+    if 6 not in required_chapters:
         all_new_edges.extend(streamlined_edges_ch6_add)
         all_edges_to_remove.extend(streamlined_edges_ch6_remove)
 
-    if 7 in non_required_chapters:
+    if 7 not in required_chapters:
         all_new_edges.extend(streamlined_edges_ch7_add)
         all_edges_to_remove.extend(streamlined_edges_ch7_remove)
 
