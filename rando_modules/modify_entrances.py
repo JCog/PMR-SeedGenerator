@@ -237,15 +237,15 @@ from maps.graph_edges.glitched_logic.global_knows_puzzle_solutions import \
 from maps.graph_edges.glitched_logic.global_reach_high_blocks_with_super_boots import \
     edges_global_reach_high_blocks_with_super_boots
 
-# Race Mode
-from maps.graph_edges.race_mode.edges_ch1 import race_edges_ch1_add, edges_ch1_remove
-from maps.graph_edges.race_mode.edges_ch2 import race_edges_ch2_add, edges_ch2_remove
-from maps.graph_edges.race_mode.edges_ch3 import race_edges_ch3_add, edges_ch3_remove
-from maps.graph_edges.race_mode.edges_ch4 import race_edges_ch4_add, edges_ch4_remove
-from maps.graph_edges.race_mode.edges_ch5 import race_edges_ch5_add, edges_ch5_remove
-from maps.graph_edges.race_mode.edges_ch6 import race_edges_ch6_add, edges_ch6_remove
-from maps.graph_edges.race_mode.edges_ch7 import race_edges_ch7_add, edges_ch7_remove
-from maps.graph_edges.race_mode.edges_hos import get_race_edges_hos_add, edges_race_hos_remove
+# Streamlined Chapters
+from maps.graph_edges.streamlined_chapters.edges_ch1 import streamlined_edges_ch1_add, streamlined_edges_ch1_remove
+from maps.graph_edges.streamlined_chapters.edges_ch2 import streamlined_edges_ch2_add, streamlined_edges_ch2_remove
+from maps.graph_edges.streamlined_chapters.edges_ch3 import streamlined_edges_ch3_add, streamlined_edges_ch3_remove
+from maps.graph_edges.streamlined_chapters.edges_ch4 import streamlined_edges_ch4_add, streamlined_edges_ch4_remove
+from maps.graph_edges.streamlined_chapters.edges_ch5 import streamlined_edges_ch5_add, streamlined_edges_ch5_remove
+from maps.graph_edges.streamlined_chapters.edges_ch6 import streamlined_edges_ch6_add, streamlined_edges_ch6_remove
+from maps.graph_edges.streamlined_chapters.edges_ch7 import streamlined_edges_ch7_add, streamlined_edges_ch7_remove
+from maps.graph_edges.streamlined_chapters.edges_hos import get_streamlined_edges_hos_add, streamlined_edges_hos_remove
 
 def get_shorter_bowsercastle(world_graph: dict):
     """
@@ -661,41 +661,41 @@ def adjust_rip_cheato_pricing(world_graph: dict, checks_in_logic:int):
     return world_graph
 
 
-def get_race_mode(world_graph: dict, non_required_chapters: list, required_chapter_count: int):
+def get_streamlined_chapters(world_graph: dict, non_required_chapters: list, required_chapter_count: int):
     all_new_edges = []
     all_edges_to_remove = []
 
     if required_chapter_count < 7:
-        all_new_edges.extend(get_race_edges_hos_add(required_chapter_count))
-        all_edges_to_remove.extend(edges_race_hos_remove)
+        all_new_edges.extend(get_streamlined_edges_hos_add(required_chapter_count))
+        all_edges_to_remove.extend(streamlined_edges_hos_remove)
 
     if 1 in non_required_chapters:
-        all_new_edges.extend(race_edges_ch1_add)
-        all_edges_to_remove.extend(edges_ch1_remove)
+        all_new_edges.extend(streamlined_edges_ch1_add)
+        all_edges_to_remove.extend(streamlined_edges_ch1_remove)
 
     if 2 in non_required_chapters:
-        all_new_edges.extend(race_edges_ch2_add)
-        all_edges_to_remove.extend(edges_ch2_remove)
+        all_new_edges.extend(streamlined_edges_ch2_add)
+        all_edges_to_remove.extend(streamlined_edges_ch2_remove)
 
     if 3 in non_required_chapters:
-        all_new_edges.extend(race_edges_ch3_add)
-        all_edges_to_remove.extend(edges_ch3_remove)
+        all_new_edges.extend(streamlined_edges_ch3_add)
+        all_edges_to_remove.extend(streamlined_edges_ch3_remove)
 
     if 4 in non_required_chapters:
-        all_new_edges.extend(race_edges_ch4_add)
-        all_edges_to_remove.extend(edges_ch4_remove)
+        all_new_edges.extend(streamlined_edges_ch4_add)
+        all_edges_to_remove.extend(streamlined_edges_ch4_remove)
 
     if 5 in non_required_chapters:
-        all_new_edges.extend(race_edges_ch5_add)
-        all_edges_to_remove.extend(edges_ch5_remove)
+        all_new_edges.extend(streamlined_edges_ch5_add)
+        all_edges_to_remove.extend(streamlined_edges_ch5_remove)
 
     if 6 in non_required_chapters:
-        all_new_edges.extend(race_edges_ch6_add)
-        all_edges_to_remove.extend(edges_ch6_remove)
+        all_new_edges.extend(streamlined_edges_ch6_add)
+        all_edges_to_remove.extend(streamlined_edges_ch6_remove)
 
     if 7 in non_required_chapters:
-        all_new_edges.extend(race_edges_ch7_add)
-        all_edges_to_remove.extend(edges_ch7_remove)
+        all_new_edges.extend(streamlined_edges_ch7_add)
+        all_edges_to_remove.extend(streamlined_edges_ch7_remove)
 
     # Modify graph with all pending changes, if any
     if all_new_edges or all_edges_to_remove:
